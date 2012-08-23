@@ -147,6 +147,19 @@ class DriverProxy(object):
         '''
         self._push(self._driver.say, (text,), name)
 
+    def sayToURL(self, text, name, url):
+        '''
+        Called by the engine to push a say command onto the queue to the url.
+        
+        @param text: Text to speak
+        @type text: unicode
+        @param name: Name to associate with the utterance
+        @type name: str
+        @param url: The URL to send the utterance to
+        @type url: str
+        '''
+        self._push(self._driver.sayToURL, (text,url), name)
+
     def stop(self):
         '''
         Called by the engine to stop the current utterance and clear the queue

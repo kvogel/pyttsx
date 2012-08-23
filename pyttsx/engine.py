@@ -112,6 +112,21 @@ class Engine(object):
         @type name: str
         '''
         self.proxy.say(text, name)
+        
+    def sayToURL(self, text, name=None, url=None):
+        '''
+        Adds an utterance to speak to the event queue.
+        
+        @param text: Text to sepak
+        @type text: unicode
+        @param name: Name to associate with this utterance. Included in 
+            notifications about this utterance.
+        @type name: str
+        @param url: The URL to send the utterance to
+        @type url: str
+        '''
+        self.proxy.sayToURL(text, name, url)
+        
     
     def stop(self):
         '''

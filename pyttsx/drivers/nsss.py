@@ -59,6 +59,13 @@ class NSSpeechDriver(NSObject):
         self._completed = True
         self._proxy.notify('started-utterance')
         self._tts.startSpeakingString_(unicode(text))
+        
+    def sayToURL(self, text, url):
+        self._proxy.setBusy(True)
+        self._completed = True
+        self._proxy.notify('started-utterance')
+        nsurl = NSURL.URLWithString_(url)
+        self._tts.startSpeakingString_toURL_(unicode(text), nsurl)
     
     def stop(self):
         if self._proxy.isBusy():
