@@ -140,6 +140,12 @@ class DummyDriver(object):
         self._proxy.notify('finished-utterance', completed=True)
         self._proxy.setBusy(False)
 
+    def sayToURL(self, text, url):
+        '''
+        Dummy driver will do the same thing as say()
+        '''
+        self.say(text)
+
     def stop(self):
         '''
         Stops any current output. If an utterance was being spoken, the driver
@@ -190,3 +196,5 @@ class DummyDriver(object):
             self._config['volume'] = value
         else:
             raise KeyError('unknown property %s' % name)
+        
+        

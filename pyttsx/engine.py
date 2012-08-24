@@ -126,7 +126,6 @@ class Engine(object):
         @type url: str
         '''
         self.proxy.sayToURL(text, name, url)
-        
     
     def stop(self):
         '''
